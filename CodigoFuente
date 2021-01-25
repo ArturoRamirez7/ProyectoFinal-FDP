@@ -1,0 +1,385 @@
+/*
+
+ProyectoFinal                                                                             Ramírez Mondragón Arturo Gabriel
+17 de diciembre del 2020
+
+*/
+
+
+//Código fuente para el proyecto final de Fundamentos de Programación (FI-UNAM)-------------------------------------------
+//Todas las variables de los programas se leen desde la entrada estándar (teclado)----------------------------------------
+
+
+//Librerías utilizadas----------------------------------------------------------------------------------------------------
+#include <stdio.h>
+
+
+
+//Funciones llamadas durante la funcion principal para cada aspecto:------------------------------------------------------
+void funcion_principal();
+	void conversion_por_PMD();
+	
+void funcion_secundaria();
+void funcion_terciaria();
+void funcion_extra();
+
+//Declaración de variables globales:--------------------------------------------------------------------------------------
+
+
+
+//Función principal (menú):-----------------------------------------------------------------------------------------------
+int main(){
+	
+//Variable para la estructura switch y escoger un problema----------------------------------------------------------------
+	unsigned int sel=0;
+	
+//Estructura de iteración 'do-while' para iterar todo el código-----------------------------------------------------------
+	do{
+	
+//Menú para escoger el problema:------------------------------------------------------------------------------------------
+		printf("\n Proyecto Final\t\t\t\t\t\t\t\tRamirez Mondragon Arturo Gabriel\n 17 de diciembre del 2020.\n\n\n");
+	
+		printf("\t\t\t\t--------------Menu---------------\n\n\n\n");
+	
+		printf("\tPor favor, seleccione la opcion que guste:\n\n\n");
+	
+		printf(" 1) Conversion de notaciones para planos y rectas (Geologia).\n\n");
+		printf(" 2) Informacion sobre brujulas de campo y notaciones.\n\n");
+		printf(" 3) Alguna informacion adicional sobre las notaciones.\n\n");
+		printf(" 4) Abrir url para descargar software Orient.\n\n");
+		printf(" 5) Salir.\n\n");
+	
+	
+		printf("\n\n\tSeleccion: ");
+		scanf("%u", &sel);
+	
+//Selección de instrucciones para cada problema:--------------------------------------------------------------------------
+		switch (sel) {
+		
+		
+			default:
+				printf("\n\n\t\tNo se espante si vio moverse todo muy rapido. Lo siento :(\n");
+				printf("\n\nParece que no consegui adicionar otras funciones. Solo estas pocas.\n\n");
+			break;
+		
+		
+			case 1:
+				printf("\n\n\n\n\t\t\tConversion de notaciones para planos y rectas (Geologia)\n\n");
+				funcion_principal();
+				printf("\n\n\nEso es todo. Muchas gracias por su tiempo. Vuelva pronto.\n\n");
+			break;
+		
+		
+			case 2:
+				printf("\n\n\n\n\t\t\tBrujulas de campo y sus notaciones aparentes\n\n");
+				funcion_secundaria();
+				printf("\n\n\nEso es todo. Muchas gracias por su tiempo. Vuelva pronto.\n\n");
+			break;
+		
+				
+			case 3:
+				printf("\n\n\n\n\t\t\tOrigen de las notaciones y regiones recurrentes\n\n");
+				funcion_terciaria();
+				printf("\n\n\nEso es todo. Muchas gracias por su tiempo. Vuelva pronto.\n\n");
+			break;
+			
+			
+			case 4:
+				printf("\n\n\n\n\t\t\tSoftware Orient\n\n");
+				funcion_extra();
+				printf("\n\n\nEso es todo. Muchas gracias por su tiempo. Vuelva pronto.\n\n");
+			break;
+	
+	
+		setbuf(stdin, NULL); // limpia el buffer del teclado y evita errores con la estructura de iteración---------------
+		
+		}
+	
+	//Final de la estructura de iteración 'do-while' para repetir el código las veces que se desee------------------------
+	} while (sel != 5);
+	
+	return 0;
+}
+
+
+
+
+//Funciones del programa en orden y su propia declaración de variables (locales):-----------------------------------------
+
+void funcion_principal() {
+//Para la función principal de este programa: Realizar el cambio de notaciones para planos y/o rectas
+
+//Declaración de variables locales:
+	unsigned int nop = 0;
+	char re='n';
+
+//Bloque de instrucciones
+	
+	printf("La notacion con la que introducira los datos es: \n\n");
+	printf(" 1) PMD.\n\n");
+	printf(" 2) Regresar.\n\n");
+	
+	printf("\n\n\tSeleccion: ");
+	scanf("%u", &nop);
+	
+	//Selección de instrucciones para cada notación:---------------------------------------------------------------------
+		switch (nop) {
+		
+		
+			default:
+				printf("\n\n\t\tParece que tecleo una opcion invalida. No se preocupe\n");
+				printf("\n\nPor favor, intentelo de nuevo.\n\n");
+			break;
+		
+				
+			case 1:
+				printf("\n\n\n\n\t\t\tNotacion PMD\n\n");
+				conversion_por_PMD();
+				printf("\n\n\nEso es todo. Muchas gracias por su tiempo. Vuelva pronto.\n\n");
+			break;
+			
+	
+		setbuf(stdin, NULL); // limpia el buffer del teclado y evita errores con la estructura de iteración---------------
+		
+		}
+	
+	/*printf("\n\n\nDesea convertir otra recta o plano? S/N\n");
+	
+	setbuf(stdin, NULL);//Evitamos errores al borrar la memoria-----------------------------------------------------------
+		
+	//scanf("%c", &re); printf("%c", re); ... Alternativa al getchar para el caracter-------------------------------------
+	re=getchar();
+	
+	//Final de la estructura de iteración 'do-while' para repetir el código las veces que se desee------------------------
+	} while (re == 's' || re == 'S'); //(nop != 4);*/
+	
+	
+}
+
+	void conversion_por_PMD(){
+
+		char repeat ='n';
+		unsigned int dep = 0;
+		float rumbos[2]={0, 0}, deep=0;
+		float *plot;
+		
+		plot = rumbos;
+		
+		do{
+			
+			printf("\n\n\nValor de la inclinacion respecto a un plano horizontal o manteo: "); scanf("%f", &deep);
+			printf("\nValor del rumbo o direccion: "); scanf("%f", &rumbos[0]);
+			
+			printf("\n\n\nEs una recta o un plano?\n\n");
+			printf("1) Recta\n\n");
+			printf("2) Plano\n\n\n");
+			scanf("%d ", &dep);
+			
+			if (dep == 1){
+				
+				if (rumbos[0] <= 90){
+					
+					printf("\n\n\nNotacion por cuadrante: ");
+					printf("%f[°] al NE %f[°]", deep, *plot);
+					
+					printf("\n\nNotacion azimutal: ");
+					printf("%f[°] al %f[°]", deep, *plot);
+					
+				}
+				
+				if (90 < rumbos[0] <= 180){
+					
+					printf("\n\n\nNotacion por cuadrante: ");
+					printf("%f[°] al SE %f[°]", deep, *plot);
+					
+					printf("\n\nNotacion azimutal: ");
+					printf("%f[°] al %f[°]", deep, *plot);
+					
+				}
+				
+				if (180 < rumbos[0] <= 270){
+					
+					printf("\n\n\nNotacion por cuadrante: ");
+					printf("%f[°] al SW %f[°]", deep, *plot);
+					
+					printf("\n\nNotacion azimutal: ");
+					printf("%f[°] al %f[°]", deep, *plot);
+					
+				}
+				
+				if (270 < rumbos[0] <= 360){
+					
+					printf("\n\n\nNotacion por cuadrante: ");
+					printf("%f[°] al NW %f[°]", deep, *plot);
+					
+					printf("\n\nNotacion azimutal: ");
+					printf("%f[°] al %f[°]", deep, *plot);
+					
+				}
+				
+			}
+			
+			if (dep == 2){
+				
+				if (*plot <= 90){
+					
+					printf("\n\n\nNotación por cuadrante: S %f W, %f SE", *plot, deep);
+					printf("\n\nNotacion azimutal: %f, %f SE", *plot, deep);
+					
+				}
+				
+				if (90 < *plot <= 180){
+					
+					rumbos[1]=180-(*plot);
+					printf("\n\n\nNotación por cuadrante: S %f E, %f SW", rumbos[1], deep);
+					printf("\n\nNotacion azimutal: %f, %f SW", rumbos[1], deep);
+					
+				}
+				
+				if (180 < *plot <= 270){
+					
+					rumbos[1]=270-(*plot);
+					printf("\n\n\nNotación por cuadrante: S %f W, %f NW", rumbos[1], deep);
+					printf("\n\nNotacion azimutal: %f, %f NW", rumbos[1], deep);
+					
+				}
+				
+				if (270 < *plot <= 360){
+					
+					rumbos[1]=360-(*plot);
+					printf("\n\n\nNotación por cuadrante: N %f W, %f NE", rumbos[1], deep);
+					printf("\n\nNotacion azimutal: %f, %f NE", rumbos[1], deep);
+					
+				}
+				
+			}
+			
+			else printf("\n\n\n");
+			
+						
+			printf("\n\n\nDesea convertir otra recta o plano? S/N\n\n\n");
+			
+			setbuf(stdin, NULL);//Evitamos errores al borrar la memoria-----------------------------------------------------------
+			
+			repeat=getchar();
+		
+		}	while (repeat == 's' || repeat == 'S');
+		
+
+	
+	}
+
+
+
+
+void funcion_secundaria() {
+	
+//Para la segunda "función" de este programa: Mostrar referencias y lectura de datos geológicos a partir de brújulas.
+
+//Declaración de variables locales para elegir el ciclo:
+	char biblio='n';
+
+//Bloque de instrucciones
+	//Bloque de selecció:
+	printf("Quiere abrir las paginas web o desea regresar al menu principal?\n\n\n");
+	printf(" a) Abrir referencias.\n\n");
+	printf(" b) Regresar al menu.\n\n\n");
+	printf("\t* Si se decide abrir la bibliografia las paginas se abriran inmediatamente, se puede saturar la RAM *\n\n");
+	
+	setbuf(stdin, NULL);//Evitamos errores al borrar la memoria-----------------------------------------------------------
+	
+	printf("\n\n\tSeleccion: "); biblio=getchar();
+	//scanf("%c", &re); printf("%c", re); ... Alternativa al getchar para el caracter-------------------------------------
+	
+	//Caso para abrir la información:
+	if (biblio == 'a' || biblio == 'A')//Indistinto si es mayúscula o minúscula-------------------------------------------
+	{
+		
+		system("start https://www.geovirtual2.cl/Geoestructural/gestr03a.html");
+		system("start https://post.geoxnet.com/uso-de-la-brujula-modelo-brunton/");
+		system("start http://www.andinoelal.cl/apuntes_tecnicos/17.-%20Orientacion%20(Uso%20de%20Brujulas).pdf");
+		system("start https://www.youtube.com/watch?v=FYUqyw8RieU");
+				
+	}
+	
+	//Caso para regresar al menú principal:
+	else {
+		
+		printf("\n\n\n");
+				
+	}
+
+}
+
+void funcion_terciaria() {
+
+//Para la tercer función de este programa: Mostrar información adicional sobre las notaciones.----------------------------
+	
+//Declaración de variables locales de selección:
+	char biblio='n';
+
+//Bloque de instrucciones
+	//Interfaz de selección:
+	printf("Quiere abrir las paginas web o desea regresar al menu principal?\n\n\n");
+	printf(" a) Abrir referencias.\n\n");
+	printf(" b) Regresar al menu.\n\n\n");
+	printf("\t* Si se decide abrir la bibliografia las paginas se abriran inmediatamente, se puede saturar la RAM *\n\n");
+	
+	setbuf(stdin, NULL);//Evitamos errores al borrar la memoria-----------------------------------------------------------
+	
+	printf("\n\n\tSeleccion: "); biblio=getchar();
+	//scanf("%c", &re); printf("%c", re); ... Alternativa al getchar para el caracter-------------------------------------
+	
+	//Caso para abrir la información:
+	if (biblio == 'a' || biblio == 'A')//Indistinto si es mayúscula o minúscula-------------------------------------------
+	{
+		
+		system("start https://www.geologiaestructural.com/conceptos-basicos/");
+		system("start https://www.geovirtual2.cl/Geoestructural/gestr01b.htm");
+		
+	}
+	
+	//Caso para regresar al menú principal:
+	else {
+		
+		printf("\n\n\n");
+				
+	}
+	
+}
+
+void funcion_extra() {
+//Función para descargar y abrir un software útil en el área Geológica llamado "Orient"-----------------------------------
+
+//Declaración de variables locales:
+	char biblio='n';
+	
+//Bloque de instrucciones:
+	//Bloque para la selección
+	printf("Quiere abrir la paginas web o desea regresar al menu principal?\n\n\n");
+	printf(" a) Abrir pagina.\n\n");
+	printf(" b) Regresar al menu.\n\n\n");
+	
+	setbuf(stdin, NULL);//Evitamos errores al borrar la memoria-----------------------------------------------------------
+	
+	printf("\n\n\tSeleccion: "); biblio=getchar();
+	//scanf("%c", &re); printf("%c", re); ... Alternativa al getchar para el caracter-------------------------------------
+	
+	//Caso donde sea afirmativo
+	if (biblio == 'a' || biblio == 'A') system("start http://www.frederickvollmer.com/orient/");
+		
+	//Caso para regresar
+	else printf("\n\n\n");
+	
+	
+	//Bloque para inicializar el software ya instalado-------------------------------------------------------------------
+	printf("Si ya descargo e instalo el software Orient. Desea abrirlo desde este programa?\n\n\nY/N\n");
+	setbuf(stdin, NULL);
+	printf("\tSeleccion: "); biblio=getchar();
+	
+		//Caso afirmativo
+		if (biblio == 'y' || biblio == 'Y') system("start Orient");
+	
+	else printf("\n\n\n");
+	
+}
